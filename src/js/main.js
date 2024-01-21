@@ -3,7 +3,7 @@ console.log('ready :)');
 //VARIABLES:
 //search:
 const form = document.querySelector('.js-form-search');
-const inputSearch = document.getElementById ('inputSearch');
+const inputSearch = document.getElementById('.js-input-search');
 const searchButton = document.querySelector('.js-search-btn');
 const url = 'https://api.jikan.moe/v4/anime?q=';
 
@@ -11,37 +11,36 @@ const url = 'https://api.jikan.moe/v4/anime?q=';
 const resetButton = document.querySelector('.js-reset-btn');
 
 //results:
-const results = document.querySelector('.js-result-list');
-const favorites = document.querySelector('.js-favorites-list');
-let dataAnime= [];
+const favContainer = document.querySelector('.js-favorites-container');
+const favList = document.querySelector('.js-favorites-list');
+const allContainer = document.querySelector('.js-all-container'); 
+const allList = document.querySelector('.js-all-list');
 
+let dataApiAnime = [];
 let resultSearchAnime = [];
+let favoritesAnime = [];
 
 
 //FUNCTIONS:
-
-//event function (get input value for searching + complete API's URL):
-const handleSearchAnime =(event)=> {
-    event.preventDefault();
-    
-//get value from user function:
-const valueAnime = inputSearch.value;
-const urlComplete = url + valueAnime;
-
-//Get data from API, save datait there is a result --> create a card with its picture and title
-const getDataAnime =(titles, images)=> {
+////Get data from API, save data if there is any results --> create a card with its picture and title
+const getDataAnime =()=> {
     fetch(urlComplete)
     .then ((response) => response.json())
     .then((data)=> {
-        resultSearchAnime = dataAnime.filter
-        
-     
+        resultSearchAnime =  dataApiAnime.filter  
 });
 
    }
+//event function (get input value for searching + complete API's URL):
+const handleSearchAnime =(event)=> {
+    event.preventDefault();
+//get value from user function:
+const valueAnime = inputSearch.value;
+const urlComplete = url + valueAnime;
+getDataAnime();
+
 }
 
-getDataAnime();
 
 
 //click event listener on search button:
