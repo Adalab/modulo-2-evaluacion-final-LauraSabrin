@@ -6,18 +6,17 @@ const form = document.querySelector(".js-form-search");
 const inputSearch = document.getElementById("inputSearch");
 const searchButton = document.querySelector(".js-search-btn");
 const url = "https://api.jikan.moe/v4/anime?q=";
-const clickedAnime = document.querySelector(".js-container-clicked");
+const clickedFavorite = document.querySelector(".js-container-clicked");
 const errorMsg = document.querySelector(".js-msg-error");
 
 
 
 //results:
-const favContainer = document.querySelector(".js-favorites-container");
+const favCard = document.querySelector(".js-favorites-card");
 const favList = document.querySelector(".js-favorites-list");
 let allContainer = document.querySelector(".js-all-container");
 let allList = document.querySelector(".js-all-list");
 let dataApiAnime = [];
-let resultSearchAnime = [];
 let favoritesAnime = [];
 const valueAnime = inputSearch.value;
 
@@ -39,7 +38,7 @@ const getDataAnime = () => {
 
 const renderAnime = () => {
   for (let i = 0; i < dataApiAnime.length; i++){
-    allList.innerHTML += `<article class="allContainer__list--card">
+    allList.innerHTML += `<article class="allContainer__list--card  js-favorites-card">
     <figure class="figure__anime">
     <img src="${dataApiAnime[i].images.jpg.image_url}" class="figure__anime--img" alt="Anime picture"/>
    </figure>
@@ -48,6 +47,11 @@ const renderAnime = () => {
   
   }  
   }
+  // const handleAddFavorite =()=> {
+  //   if(favCard === )
+
+  //   }
+  
 
 
 const handleSearchAnime = (event) => {
@@ -56,4 +60,7 @@ const handleSearchAnime = (event) => {
 };
 
 //click event listener on search button:
-searchButton.addEventListener("click", handleSearchAnime);
+searchButton.addEventListener('click', handleSearchAnime);
+allList.addEventListener('click', (event) => {
+  console.log(event.currentTarget);
+});

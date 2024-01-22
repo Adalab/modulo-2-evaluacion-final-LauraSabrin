@@ -1,29 +1,39 @@
-@import 'core/variables';
-@import 'core/mixins';
-@import 'core/reset';
-@import 'layout/header';
-@import 'layout/form';
-@import 'layout/allAnimes';
-@import 'layout/favoritesAnimes';
-@import 'layout/footer';
-
-// .body {
-//     display:grid;
-//     grid-template-columns: 1fr 2fr;
-//     grid-template-rows: 1fr 4fr 1fr;
-//       
-//     
-// }
-
+@import "core/variables";
+@import "core/mixins";
+@import "core/reset";
+@import "layout/header";
+@import "layout/form";
+@import "layout/allAnimes";
+@import "layout/favoritesAnimes";
+@import "layout/footer";
 
 .main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 90vh;
+  &__div--content {
+    width: 100%;
     display: flex;
-    flex-flow: row wrap;
-    height: 90vh;
-    gap: 20px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+  }
+  @media (min-width: 768px) {
+    // flex-direction: row;
+    // flex-wrap: nowrap;
+    // gap: 20px;
+  }
 }
 
 .animeCard {
-width: fit content;
-height: fit-content;
+  width: fit content;
+  height: fit-content;
+}
+.clickedFavorite {
+   border: 2px solid fuchsia;
+  color: fuchsia;
+  font-size: larger;
+
 }
