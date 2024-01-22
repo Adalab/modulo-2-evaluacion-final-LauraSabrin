@@ -2,68 +2,81 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Adalab Web Starter Kit</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🍜Anime📽️</title>
+    <meta
+      name="description"
+      content="Welcome to your new favorite 🍜Anime📽️ library's website!! Come and start your own collection of the best anime."
+    />
+    <meta name="robots" content="index,follow" />
     
-    <link rel="icon" href="./images/favicon.png" />
-    <link rel="stylesheet" href="./assets/main-62015576.css">
+    <link rel="stylesheet" href="./assets/index-b2a90f88.css">
   </head>
 
-  <body>
-    <div class="page">
-      <header class="page__header">
-  <img src="./images/logo-adalab.png" alt="Adalab">
-  <h1>Bienvenidos a Adalab</h1>
+  <body class="body">
+    <header class="header">
+    <nav class="nav">
+        <h1 class="h1Searcher"> Search Anime: ⬇️ </h1>
+    </nav>
+    
 </header>
+    <main class="main">
+      <form action="#" method="post" class="form js-form-search">
+  <fieldset class="form__fieldset">
+    <input
+      type="text"
+      name="searchAnime"
+      class="form__fieldset--text js-input-search"
+      id="inputSearch"
+      placeholder="Ex: Midori no Hibi"
+      required
+      value=""
+    />
+    <input
+      type="submit"
+      value="Search"
+      class="form__fieldset--btnSearch js-search-btn"
+    />
+    <p class="errorMessage js-msg-error"></p>
+  
+  </fieldset>
+</form>
 
-      <main class="page__main">
-  <h2>Este es el starter kit de Adalab</h2>
-  <p>Lo usamos para aprender:</p>
-  <ul class="main__list">
-    <li>Sass</li>
-    <li>HTML partials</li>
-    <li>Gulp</li>
-    <li>y muchas cosas más</li>
-  </ul>
-  <p>Si quieres saber cúales son las rutas correctas para:</p>
-  <ul class="main__list">
-    <li>
-      una <code class="code">&lt;img /&gt;</code> mira el fichero
-      <code class="code">./src/html/partials/header.html</code>.
-    </li>
-    <li>
-      y para un <code class="code">background-image</code> mira el fichero
-      <code class="code">./src/html/scss/layout/_page.scss</code>.
-    </li>
-  </ul>
-  <p>
-    Si quieres saber cómo usar un partial HTML dentro de otro partial, busca en la carperta
-    <code class="code">./src/html/index.html</code> y
-    <code class="code">./src/html/partials/main.html</code>, y verás cómo estamos creando estos
-    enlaces:
-  </p>
-  <ul class="main__list">
-    <li>
-      <a class="link__adalab" href="https://adalab.es">Adalab</a>
+      <div class="main__div--content">
+        <section class="allContainer js-all-container">
+  <h2 class="allContainer__title">All results:</h2>
+  <div class="allContainer__list js-all-list">
+    
+  </div>
+</section>
 
-    </li>
-    <li>
-      <a class="{=$aClass}" href="./more-info.html">Más info del starter kit</a>
+        <section class="favoritesContainer js-favorites-container">
+    <h3 class="favoritesContainer__title">🖤My favorites:🖤</h3>
+    <div class="favoritesContainer__list js-favorites-list">
+        <!-- <article class="favoritesContainer__list--card  js-favorites-card">
+          <figure class="figure__anime" >
+            <img src= "${dataApiAnime[i].images.jpg.image_url}" alt="Anime picture" class="figure__anime--img" />
+          </figure>
+          <h4 class="figure__anime--title"></h4>
+        </article> -->
+        <button
+        type="reset"
+        value="reset"
+        class="favoritesContainer__list--btnReset js-reset-btn"
+      >
+        Delete All
+      </button>
+      </div>
+    </article>
+</section>
 
-    </li>
-  </ul>
-</main>
-
-      <footer class="page__footer">
-  <small>
-    &copy; Todos los derechos reservados
-    <a class="link__adalab" href="https://adalab.es">Adalab</a>
-
-  </small>
+      </div>
+    </main>
+    <footer class="footer">
+    
 </footer>
 
-    </div>
+
     <script src="./js/main.js"></script>
   </body>
 </html>
