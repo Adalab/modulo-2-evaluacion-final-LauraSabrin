@@ -6,6 +6,7 @@ const form = document.querySelector(".js-form-search");
 const inputSearch = document.getElementById("inputSearch");
 const searchButton = document.querySelector(".js-search-btn");
 const url = "https://api.jikan.moe/v4/anime?q=";
+const clickedAnime = document.querySelector(".js-container-clicked");
 
 //results:
 const favContainer = document.querySelector(".js-favorites-container");
@@ -15,55 +16,56 @@ let allList = document.querySelector(".js-all-list");
 let dataApiAnime = [];
 let resultSearchAnime = [];
 let favoritesAnime = [];
+const valueAnime = inputSearch.value;
 
 //create anime card list
-const animeCard = `<div class="allContainer__list js-all-list"
-     <article class="allContainer__list--card">
-     <figure>
-     <img src="${dataApiAnime.image}" alt="Anime picture"/>
-    </figure>
-    </article>
-    <h4>${dataApiAnime.title}</h4>
-    </div>`;
+let animeCard = " ";
 
 //FUNCTIONS:
 //1)Get data from API, save data if there is any results --> create a card with its picture and title
 const getDataAnime = () => {
-  const valueAnime = inputSearch.value;
-  console.log(inputSearch.value);
-  console.log(valueAnime);
   const urlComplete = url + valueAnime;
-  console.log(urlComplete);
-  fetch(urlComplete)
+
+   fetch(urlComplete)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-      dataApiAnime = data.data;
-      console.log(data.data);
-      console.log(dataApiAnime);
-      console.log(dataApiAnime.title);
-      console.log(typeof dataApiAnime);
-      renderAnime();
-    });
-};
+        dataApiAnime = data.data;
+        renderAnime();
 
-//2)I have modified data so i have to create a function to update the info
-const renderAnime = () => {
-    for (let i = 0 ; i <= dataApiAnime.length; i++);
-    if(valueAnime === dataApiAnime[1].title) {
-
-        allContainer.innerHTML += animeCard;
-    } else {
-        return 'No results to show.'
-    }
   //   localStorage.setItem('dataApiAnime', JSON.stringify(dataApiAnime));
+});
+      console.log(data);
+      console.log(data.title);
+      console.log(dataApiAnime);
+      //console.log(dataApiAnime[1]);
+      //console.log(typeof dataApiAnime[4]);
+      //console.log(typeof data);
+      
+      //getTitles();
 };
 
-//event function get input value for searching + complete API's URL):
+const renderAnime = () => {
+    for (let i = 0; i <= dataApiAnime.length; i++) {
+        animeCard += `<div class="allContainer__list js-all-list"
+        <article class="allContainer__list--card">
+        <figure>
+        <img src="${dataApiAnime.images}" alt="Anime picture"/>
+       </figure>
+       </article>
+       <h4>${dataApiAnime.title}</h4>
+       </div>`;
+    }
+    console.log(animeCard);
+
+};
+// function getTitles(valueAnime) {
+//   return dataApiAnime.filter((anime) => anime.title === valueAnime);
+// }
+// getTitles();
+
 const handleSearchAnime = (event) => {
   event.preventDefault();
-  //get value from user function:
-  getDataAnime();
+   getDataAnime();
 };
 
 //click event listener on search button:
