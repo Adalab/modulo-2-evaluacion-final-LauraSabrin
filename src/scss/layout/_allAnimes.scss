@@ -1,18 +1,50 @@
 .allContainer {
   order: 2;
-  width: 60vw;
-  height: 80vh;
+  width: 50vw;
+  min-height: 80vh;
+  max-height: fit-content;
   background-color: lightgreen;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 2px solid black;
   &__title {
     width: 100%;
+    text-align:left;
+    padding-left: 5px;
+    padding-top: 5px;
     height: fit-content;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
   }
   &__list {
     display: flex;
-    flex-flow: column, wrap;
-    width: 40px;
-    height: 50px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 100%;
+    gap: 1.2rem;
+    
+    &--card {
+      flex-direction: column;
+      width: 60px;
+      height: 80px;
+    }
   }
 }
+.figure__anime {
+  width: 60px;
+  height: 80px;
+  &--img {
+    width: 60px;
+    height: 80px;
+  }
+  &--title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: black;
+  }
+
+}
+
+
+

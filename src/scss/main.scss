@@ -19,13 +19,9 @@
 .main {
     display: flex;
     flex-flow: row wrap;
-//     display:grid;
-//     grid-template-columns: 1fr 2fr;
-//    
-    height: 70vh;
+    height: 90vh;
     gap: 20px;
 }
-
 
 .animeCard {
 width: fit content;

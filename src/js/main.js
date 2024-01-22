@@ -7,6 +7,9 @@ const inputSearch = document.getElementById("inputSearch");
 const searchButton = document.querySelector(".js-search-btn");
 const url = "https://api.jikan.moe/v4/anime?q=";
 const clickedAnime = document.querySelector(".js-container-clicked");
+const errorMsg = document.querySelector(".js-msg-error");
+
+
 
 //results:
 const favContainer = document.querySelector(".js-favorites-container");
@@ -18,54 +21,38 @@ let resultSearchAnime = [];
 let favoritesAnime = [];
 const valueAnime = inputSearch.value;
 
-//create anime card list
-let animeCard = " ";
-
 //FUNCTIONS:
 //1)Get data from API, save data if there is any results --> create a card with its picture and title
 const getDataAnime = () => {
   const urlComplete = url + valueAnime;
 
-   fetch(urlComplete)
+  fetch(urlComplete)
     .then((response) => response.json())
     .then((data) => {
-        dataApiAnime = data.data;
-        renderAnime();
+         dataApiAnime = data.data;
+         renderAnime();
+   
+    });
+  
 
-  //   localStorage.setItem('dataApiAnime', JSON.stringify(dataApiAnime));
-});
-      console.log(data);
-      console.log(data.title);
-      console.log(dataApiAnime);
-      //console.log(dataApiAnime[1]);
-      //console.log(typeof dataApiAnime[4]);
-      //console.log(typeof data);
-      
-      //getTitles();
 };
 
 const renderAnime = () => {
-    for (let i = 0; i <= dataApiAnime.length; i++) {
-        animeCard += `<div class="allContainer__list js-all-list"
-        <article class="allContainer__list--card">
-        <figure>
-        <img src="${dataApiAnime.images}" alt="Anime picture"/>
-       </figure>
-       </article>
-       <h4>${dataApiAnime.title}</h4>
-       </div>`;
-    }
-    console.log(animeCard);
+  for (let i = 0; i < dataApiAnime.length; i++){
+    allList.innerHTML += `<article class="allContainer__list--card">
+    <figure class="figure__anime">
+    <img src="${dataApiAnime[i].images.jpg.image_url}" class="figure__anime--img" alt="Anime picture"/>
+   </figure>
+   <h4 class="figure__anime--title">${dataApiAnime[i].title}</h4>
+   </article>`;
+  
+  }  
+  }
 
-};
-// function getTitles(valueAnime) {
-//   return dataApiAnime.filter((anime) => anime.title === valueAnime);
-// }
-// getTitles();
 
 const handleSearchAnime = (event) => {
   event.preventDefault();
-   getDataAnime();
+  getDataAnime();
 };
 
 //click event listener on search button:

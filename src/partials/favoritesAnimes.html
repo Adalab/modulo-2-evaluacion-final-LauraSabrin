@@ -1,12 +1,19 @@
 <section class="favoritesContainer js-favorites-container">
     <h3 class="favoritesContainer__title">🖤My favorites:🖤</h3>
     <div class="favoritesContainer__list js-favorites-list">
-        <article class="favoritesContainer__list--card  js-container-clicked">
-          <figure>
-            <img src="" alt="Anime picture" />
+        <article class="favoritesContainer__list--card  js-favorites-container">
+          <figure class="figure__anime" >
+            <img src= "${dataApiAnime[i].images.jpg.image_url}" alt="Anime picture" class="figure__anime--img" />
           </figure>
-          <h4></h4>
+          <h4 class="figure__anime--title"></h4>
         </article>
+        <button
+        type="reset"
+        value="reset"
+        class="favoritesContainer__list--btnReset js-reset-btn"
+      >
+        Delete All
+      </button>
       </div>
     </article>
 </section>
